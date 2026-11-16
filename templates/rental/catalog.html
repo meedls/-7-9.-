@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Каталог — Прокат игр{% endblock %}
 {% block content %}
-<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Каталог</span></nav>
+<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Каталог</span></nav>
 <section aria-labelledby="catalog-title">
     <h1 id="catalog-title">Игры и консоли</h1>
     <p class="intro">Найдите игру для своей платформы или выберите настольную игру для компании.</p>

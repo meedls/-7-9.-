@@ -35,7 +35,7 @@ button:disabled { opacity: 1; cursor: not-allowed; }
 .site-footer { background: #e2ebdd; padding: 20px 0 28px; color: var(--muted); font-size: 14px; font-weight: 700; }
 @media (max-width: 800px) {
     .header-content { flex-wrap: wrap; padding-block: 12px; }
-    .main-nav { margin-left: auto; } .login { display: none; }
+    .main-nav { margin-left: auto; }
     .catalog-layout { grid-template-columns: 1fr; }
     .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .filter-options, .reset { display: none; }
