@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Каталог — Прокат игр{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Каталог</span></nav>
+<section aria-labelledby="catalog-title">
+    <h1 id="catalog-title">Игры и консоли</h1>
+    <p class="intro">Найдите игру для своей платформы или выберите настольную игру для компании.</p>
+    <div class="catalog-layout">
+        <aside class="filters" aria-label="Поиск и фильтры">
+            <p class="preview-note">Поиск и фильтры будут доступны после подключения каталога.</p>
+            <form>
+                <fieldset disabled>
+                    <label for="search">Поиск</label><input id="search" type="search" placeholder="Название игры">
+                    <div class="filter-options">
+                        <label for="category">Категория</label><select id="category"><option>Все категории</option></select>
+                        <label for="platform">Платформа</label><select id="platform"><option>Все платформы</option></select>
+                        <label for="sort">Сортировка</label><select id="sort"><option>По названию</option></select>
+                        <label for="available">Только в наличии</label><select id="available"><option>Нет</option></select>
+                    </div>
+                    <button type="submit">Показать игры</button>
+                    <span class="reset">Сбросить фильтры</span>
+                </fieldset>
+            </form>
+        </aside>
+        <section class="cards" aria-label="Пример карточек каталога">
+            <article class="card">
+                <div class="art art-cards" aria-hidden="true"><svg viewBox="0 0 120 70"><rect x="18" y="19" width="31" height="47" rx="4" fill="#496e61"/><rect x="46" y="12" width="31" height="47" rx="4" fill="#b66f43"/><rect x="74" y="8" width="31" height="47" rx="4" fill="#426681"/><circle cx="31" cy="32" r="6" fill="#f5c866"/><circle cx="59" cy="25" r="6" fill="#ffdf9d"/><circle cx="89" cy="24" r="7" fill="#dceae7"/></svg></div>
+                <h2>Диксит</h2><p>Настольная игра · 150 ₽ / сутки</p><p class="availability">В наличии</p><button type="button" disabled>Подробнее</button>
+            </article>
+            <article class="card">
+                <div class="art art-train" aria-hidden="true"><svg viewBox="0 0 120 70"><path d="M5 54h110" stroke="#8b7664" stroke-width="4"/><rect x="24" y="19" width="27" height="31" rx="3" fill="#775443"/><rect x="50" y="30" width="46" height="20" rx="3" fill="#995a40"/><rect x="29" y="25" width="14" height="9" fill="#eadcc8"/><circle cx="40" cy="51" r="7" fill="#35464c"/><circle cx="86" cy="51" r="7" fill="#35464c"/></svg></div>
+                <h2>Билет на поезд</h2><p>Настольная игра · 130 ₽ / сутки</p><p class="availability">В наличии</p><button type="button" disabled>Подробнее</button>
+            </article>
+            <article class="card">
+                <div class="art art-car" aria-hidden="true"><svg viewBox="0 0 120 70"><path d="M9 51h101" stroke="#a8bac5" stroke-width="8" stroke-linecap="round"/><rect x="17" y="34" width="87" height="18" rx="7" fill="#a85e36"/><path d="M35 34l5-11h39l8 11" fill="#a85e36"/><rect x="43" y="25" width="30" height="10" rx="3" fill="#dce8ef"/><circle cx="35" cy="51" r="7" fill="#354b57"/><circle cx="87" cy="51" r="7" fill="#354b57"/></svg></div>
+                <h2>Forza Horizon 5</h2><p>Xbox · 300 ₽ / сутки</p><p class="availability">В наличии</p><button type="button" disabled>Подробнее</button>
+            </article>
+        </section>
+    </div>
+</section>
+{% endblock %}

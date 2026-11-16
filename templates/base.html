@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Прокат игр{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'rental/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="{% url 'catalog' %}"><span class="dice" aria-hidden="true">••<br>••</span>Прокат игр</a>
+            <nav class="main-nav" aria-label="Основная навигация">
+                <a href="{% url 'catalog' %}" aria-current="page">Каталог</a><span class="nav-dot" aria-hidden="true">·</span><span>Подписка</span>
+            </nav>
+            <span class="login">Войти</span>
+        </div>
+    </header>
+    <main class="container main-content">{% block content %}{% endblock %}</main>
+    <footer class="site-footer"><div class="container">Прокат игр и оборудования</div></footer>
+</body>
+</html>
