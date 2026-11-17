@@ -1,0 +1,21 @@
+{% load static %}
+<div class="cards" aria-label="Игры каталога">
+    {% for item in page_obj %}
+    <article class="card">
+        {% if item.cover %}
+        <img class="catalog-cover" src="{{ item.cover.url }}" alt="{{ item.title }}" width="320" height="180" loading="lazy">
+        {% else %}
+        <img class="catalog-cover" src="{% static 'rental/gta.jpg' %}" alt="Иллюстрация GTA VI — изображение-заглушка" width="596" height="335" loading="lazy">
+        {% endif %}
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.category.name }}{% for platform in item.platforms.all %}{% if forloop.first %} · {% else %}, {% endif %}{{ platform.name }}{% endfor %}</p>
+        <p class="catalog-description">{{ item.description|truncatechars:100 }}</p>
+        <p class="catalog-price">{{ item.daily_price|floatformat:2 }} ₽ / сутки</p>
+        <p class="catalog-date">Добавлено: {{ item.created_at|date:'d.m.Y' }}</p>
+        {% if item.available_count %}<p class="availability">В наличии</p>{% else %}<p class="availability catalog-unavailable">Нет в наличии</p>{% endif %}
+        <a class="card-link" href="{% url 'rental:item' item.pk %}">Подробнее</a>
+    </article>
+    {% empty %}
+    <p class="catalog-empty">{{ empty_message }}</p>
+    {% endfor %}
+</div>

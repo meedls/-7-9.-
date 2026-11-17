@@ -1,0 +1,12 @@
+.catalog-cover, .catalog-cover-placeholder { width: 100%; height: 140px; border-radius: 5px; background: #dceae3; }
+.catalog-cover { display: block; object-fit: cover; }
+.catalog-cover-placeholder { display: grid; place-items: center; font-size: 42px; }
+.card .catalog-description { margin-top: 8px; }
+.card .catalog-price { color: var(--ink); margin-top: 8px; font-weight: 700; }
+.card .catalog-date { margin-top: 6px; font-size: 13px; }
+.card .availability { margin-top: 16px; }
+.card .catalog-unavailable { color: var(--muted); }
+.catalog-empty { color: var(--muted); line-height: 1.5; }
+.pagination { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 24px; }
+.pagination a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; color: var(--green); border: 1px solid var(--border); border-radius: 5px; text-decoration: none; font-weight: 700; }
+.search-panel-results { max-width: none; margin-bottom: 24px; }

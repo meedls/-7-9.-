@@ -1,0 +1,2646 @@
+[
+  {
+    "model": "rental.category",
+    "pk": 1,
+    "fields": {
+      "name": "Консоли"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 2,
+    "fields": {
+      "name": "VR-шлемы"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 3,
+    "fields": {
+      "name": "Диски PS5"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 4,
+    "fields": {
+      "name": "Диски PS4"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 5,
+    "fields": {
+      "name": "Игры Xbox"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 6,
+    "fields": {
+      "name": "Игры Switch"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 7,
+    "fields": {
+      "name": "Семейные игры"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 8,
+    "fields": {
+      "name": "Стратегии"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 9,
+    "fields": {
+      "name": "Кооперативные игры"
+    }
+  },
+  {
+    "model": "rental.category",
+    "pk": 10,
+    "fields": {
+      "name": "Игры для компании"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 1,
+    "fields": {
+      "name": "PS5"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 2,
+    "fields": {
+      "name": "PS4"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 3,
+    "fields": {
+      "name": "Xbox Series"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 4,
+    "fields": {
+      "name": "Xbox One"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 5,
+    "fields": {
+      "name": "Nintendo Switch"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 6,
+    "fields": {
+      "name": "Nintendo Switch 2"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 7,
+    "fields": {
+      "name": "PC VR"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 8,
+    "fields": {
+      "name": "PlayStation VR2"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 9,
+    "fields": {
+      "name": "Meta Quest"
+    }
+  },
+  {
+    "model": "rental.platform",
+    "pk": 10,
+    "fields": {
+      "name": "Настольная игра"
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 1,
+    "fields": {
+      "title": "PlayStation 5",
+      "category": 1,
+      "description": "PlayStation 5. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "100.00",
+      "cover": "",
+      "created_at": "2026-11-01T08:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 2,
+    "fields": {
+      "title": "Xbox Series X",
+      "category": 1,
+      "description": "Xbox Series X. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "125.00",
+      "cover": "",
+      "created_at": "2026-11-01T09:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 3,
+    "fields": {
+      "title": "Nintendo Switch",
+      "category": 1,
+      "description": "Nintendo Switch. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "150.00",
+      "cover": "",
+      "created_at": "2026-11-01T10:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 4,
+    "fields": {
+      "title": "Meta Quest 3",
+      "category": 2,
+      "description": "Meta Quest 3. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "175.00",
+      "cover": "",
+      "created_at": "2026-11-01T11:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 5,
+    "fields": {
+      "title": "PlayStation VR2",
+      "category": 2,
+      "description": "PlayStation VR2. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "200.00",
+      "cover": "",
+      "created_at": "2026-11-01T12:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 6,
+    "fields": {
+      "title": "HTC Vive",
+      "category": 2,
+      "description": "HTC Vive. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "225.00",
+      "cover": "",
+      "created_at": "2026-11-01T13:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 7,
+    "fields": {
+      "title": "Astro Bot",
+      "category": 3,
+      "description": "Astro Bot. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "250.00",
+      "cover": "",
+      "created_at": "2026-11-01T14:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 8,
+    "fields": {
+      "title": "Gran Turismo 7",
+      "category": 3,
+      "description": "Gran Turismo 7. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "275.00",
+      "cover": "",
+      "created_at": "2026-11-01T15:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 9,
+    "fields": {
+      "title": "Ratchet and Clank",
+      "category": 3,
+      "description": "Ratchet and Clank. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "300.00",
+      "cover": "",
+      "created_at": "2026-11-01T16:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 10,
+    "fields": {
+      "title": "God of War",
+      "category": 4,
+      "description": "God of War. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "325.00",
+      "cover": "",
+      "created_at": "2026-11-01T17:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 11,
+    "fields": {
+      "title": "Horizon Zero Dawn",
+      "category": 4,
+      "description": "Horizon Zero Dawn. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "350.00",
+      "cover": "",
+      "created_at": "2026-11-01T18:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 12,
+    "fields": {
+      "title": "Uncharted 4",
+      "category": 4,
+      "description": "Uncharted 4. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "375.00",
+      "cover": "",
+      "created_at": "2026-11-01T19:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 13,
+    "fields": {
+      "title": "Forza Horizon 5",
+      "category": 5,
+      "description": "Forza Horizon 5. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "400.00",
+      "cover": "",
+      "created_at": "2026-11-01T20:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 14,
+    "fields": {
+      "title": "Halo Infinite",
+      "category": 5,
+      "description": "Halo Infinite. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "425.00",
+      "cover": "",
+      "created_at": "2026-11-01T21:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 15,
+    "fields": {
+      "title": "Sea of Thieves",
+      "category": 5,
+      "description": "Sea of Thieves. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "450.00",
+      "cover": "",
+      "created_at": "2026-11-01T22:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 16,
+    "fields": {
+      "title": "Mario Kart 8",
+      "category": 6,
+      "description": "Mario Kart 8. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "475.00",
+      "cover": "",
+      "created_at": "2026-11-01T23:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 17,
+    "fields": {
+      "title": "Zelda Breath of the Wild",
+      "category": 6,
+      "description": "Zelda Breath of the Wild. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "500.00",
+      "cover": "",
+      "created_at": "2026-11-02T00:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 18,
+    "fields": {
+      "title": "Super Mario Odyssey",
+      "category": 6,
+      "description": "Super Mario Odyssey. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "525.00",
+      "cover": "",
+      "created_at": "2026-11-02T01:00:00Z",
+      "is_published": true,
+      "players_min": null,
+      "players_max": null
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 19,
+    "fields": {
+      "title": "Каркассон",
+      "category": 7,
+      "description": "Каркассон. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "550.00",
+      "cover": "",
+      "created_at": "2026-11-02T02:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 20,
+    "fields": {
+      "title": "Билет на поезд",
+      "category": 7,
+      "description": "Билет на поезд. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "575.00",
+      "cover": "",
+      "created_at": "2026-11-02T03:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 21,
+    "fields": {
+      "title": "Азул",
+      "category": 7,
+      "description": "Азул. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "600.00",
+      "cover": "",
+      "created_at": "2026-11-02T04:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 22,
+    "fields": {
+      "title": "Колонизаторы",
+      "category": 8,
+      "description": "Колонизаторы. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "625.00",
+      "cover": "",
+      "created_at": "2026-11-02T05:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 23,
+    "fields": {
+      "title": "Покорение Марса",
+      "category": 8,
+      "description": "Покорение Марса. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "650.00",
+      "cover": "",
+      "created_at": "2026-11-02T06:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 24,
+    "fields": {
+      "title": "Крылья",
+      "category": 8,
+      "description": "Крылья. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "675.00",
+      "cover": "",
+      "created_at": "2026-11-02T07:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 25,
+    "fields": {
+      "title": "Пандемия",
+      "category": 9,
+      "description": "Пандемия. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "700.00",
+      "cover": "",
+      "created_at": "2026-11-02T08:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 26,
+    "fields": {
+      "title": "Запретный остров",
+      "category": 9,
+      "description": "Запретный остров. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "725.00",
+      "cover": "",
+      "created_at": "2026-11-02T09:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 27,
+    "fields": {
+      "title": "Андор",
+      "category": 9,
+      "description": "Андор. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "750.00",
+      "cover": "",
+      "created_at": "2026-11-02T10:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 28,
+    "fields": {
+      "title": "Кодовые имена",
+      "category": 10,
+      "description": "Кодовые имена. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "775.00",
+      "cover": "",
+      "created_at": "2026-11-02T11:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 29,
+    "fields": {
+      "title": "Диксит",
+      "category": 10,
+      "description": "Диксит. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "800.00",
+      "cover": "",
+      "created_at": "2026-11-02T12:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.item",
+    "pk": 30,
+    "fields": {
+      "title": "Имаджинариум",
+      "category": 10,
+      "description": "Имаджинариум. Учебная позиция проката, комплект проверяется при возврате.",
+      "daily_price": "825.00",
+      "cover": "",
+      "created_at": "2026-11-02T13:00:00Z",
+      "is_published": true,
+      "players_min": 2,
+      "players_max": 6
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 1,
+    "fields": {
+      "item": 1,
+      "platform": 1
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 2,
+    "fields": {
+      "item": 2,
+      "platform": 3
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 3,
+    "fields": {
+      "item": 3,
+      "platform": 5
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 4,
+    "fields": {
+      "item": 4,
+      "platform": 9
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 5,
+    "fields": {
+      "item": 5,
+      "platform": 8
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 6,
+    "fields": {
+      "item": 6,
+      "platform": 7
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 7,
+    "fields": {
+      "item": 7,
+      "platform": 1
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 8,
+    "fields": {
+      "item": 8,
+      "platform": 1
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 9,
+    "fields": {
+      "item": 9,
+      "platform": 1
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 10,
+    "fields": {
+      "item": 10,
+      "platform": 2
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 11,
+    "fields": {
+      "item": 10,
+      "platform": 1
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 12,
+    "fields": {
+      "item": 11,
+      "platform": 2
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 13,
+    "fields": {
+      "item": 11,
+      "platform": 1
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 14,
+    "fields": {
+      "item": 12,
+      "platform": 2
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 15,
+    "fields": {
+      "item": 12,
+      "platform": 1
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 16,
+    "fields": {
+      "item": 13,
+      "platform": 3
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 17,
+    "fields": {
+      "item": 14,
+      "platform": 3
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 18,
+    "fields": {
+      "item": 15,
+      "platform": 3
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 19,
+    "fields": {
+      "item": 16,
+      "platform": 5
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 20,
+    "fields": {
+      "item": 17,
+      "platform": 5
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 21,
+    "fields": {
+      "item": 18,
+      "platform": 5
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 22,
+    "fields": {
+      "item": 19,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 23,
+    "fields": {
+      "item": 20,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 24,
+    "fields": {
+      "item": 21,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 25,
+    "fields": {
+      "item": 22,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 26,
+    "fields": {
+      "item": 23,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 27,
+    "fields": {
+      "item": 24,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 28,
+    "fields": {
+      "item": 25,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 29,
+    "fields": {
+      "item": 26,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 30,
+    "fields": {
+      "item": 27,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 31,
+    "fields": {
+      "item": 28,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 32,
+    "fields": {
+      "item": 29,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.itemplatform",
+    "pk": 33,
+    "fields": {
+      "item": 30,
+      "platform": 10
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 1,
+    "fields": {
+      "name": "Коробка"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 2,
+    "fields": {
+      "name": "Контроллер"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 3,
+    "fields": {
+      "name": "Кабель HDMI"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 4,
+    "fields": {
+      "name": "Блок питания"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 5,
+    "fields": {
+      "name": "Диск"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 6,
+    "fields": {
+      "name": "Игровое поле"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 7,
+    "fields": {
+      "name": "Набор карт"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 8,
+    "fields": {
+      "name": "Набор фишек"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 9,
+    "fields": {
+      "name": "Кубик"
+    }
+  },
+  {
+    "model": "rental.component",
+    "pk": 10,
+    "fields": {
+      "name": "VR-контроллер"
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 1,
+    "fields": {
+      "item": 1,
+      "inventory_number": "GR25-001-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 2,
+    "fields": {
+      "item": 1,
+      "inventory_number": "GR25-001-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 3,
+    "fields": {
+      "item": 2,
+      "inventory_number": "GR25-002-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 4,
+    "fields": {
+      "item": 2,
+      "inventory_number": "GR25-002-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 5,
+    "fields": {
+      "item": 3,
+      "inventory_number": "GR25-003-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 6,
+    "fields": {
+      "item": 3,
+      "inventory_number": "GR25-003-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 7,
+    "fields": {
+      "item": 4,
+      "inventory_number": "GR25-004-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 8,
+    "fields": {
+      "item": 4,
+      "inventory_number": "GR25-004-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 9,
+    "fields": {
+      "item": 5,
+      "inventory_number": "GR25-005-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 10,
+    "fields": {
+      "item": 5,
+      "inventory_number": "GR25-005-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 11,
+    "fields": {
+      "item": 6,
+      "inventory_number": "GR25-006-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 12,
+    "fields": {
+      "item": 6,
+      "inventory_number": "GR25-006-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 13,
+    "fields": {
+      "item": 7,
+      "inventory_number": "GR25-007-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 14,
+    "fields": {
+      "item": 7,
+      "inventory_number": "GR25-007-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 15,
+    "fields": {
+      "item": 8,
+      "inventory_number": "GR25-008-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 16,
+    "fields": {
+      "item": 8,
+      "inventory_number": "GR25-008-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 17,
+    "fields": {
+      "item": 9,
+      "inventory_number": "GR25-009-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 18,
+    "fields": {
+      "item": 9,
+      "inventory_number": "GR25-009-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 19,
+    "fields": {
+      "item": 10,
+      "inventory_number": "GR25-010-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 20,
+    "fields": {
+      "item": 10,
+      "inventory_number": "GR25-010-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 21,
+    "fields": {
+      "item": 11,
+      "inventory_number": "GR25-011-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 22,
+    "fields": {
+      "item": 11,
+      "inventory_number": "GR25-011-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 23,
+    "fields": {
+      "item": 12,
+      "inventory_number": "GR25-012-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 24,
+    "fields": {
+      "item": 12,
+      "inventory_number": "GR25-012-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 25,
+    "fields": {
+      "item": 13,
+      "inventory_number": "GR25-013-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 26,
+    "fields": {
+      "item": 13,
+      "inventory_number": "GR25-013-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 27,
+    "fields": {
+      "item": 14,
+      "inventory_number": "GR25-014-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 28,
+    "fields": {
+      "item": 14,
+      "inventory_number": "GR25-014-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 29,
+    "fields": {
+      "item": 15,
+      "inventory_number": "GR25-015-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 30,
+    "fields": {
+      "item": 15,
+      "inventory_number": "GR25-015-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 31,
+    "fields": {
+      "item": 16,
+      "inventory_number": "GR25-016-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 32,
+    "fields": {
+      "item": 16,
+      "inventory_number": "GR25-016-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 33,
+    "fields": {
+      "item": 17,
+      "inventory_number": "GR25-017-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 34,
+    "fields": {
+      "item": 17,
+      "inventory_number": "GR25-017-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 35,
+    "fields": {
+      "item": 18,
+      "inventory_number": "GR25-018-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 36,
+    "fields": {
+      "item": 18,
+      "inventory_number": "GR25-018-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 37,
+    "fields": {
+      "item": 19,
+      "inventory_number": "GR25-019-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 38,
+    "fields": {
+      "item": 19,
+      "inventory_number": "GR25-019-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 39,
+    "fields": {
+      "item": 20,
+      "inventory_number": "GR25-020-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 40,
+    "fields": {
+      "item": 20,
+      "inventory_number": "GR25-020-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 41,
+    "fields": {
+      "item": 21,
+      "inventory_number": "GR25-021-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 42,
+    "fields": {
+      "item": 21,
+      "inventory_number": "GR25-021-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 43,
+    "fields": {
+      "item": 22,
+      "inventory_number": "GR25-022-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 44,
+    "fields": {
+      "item": 22,
+      "inventory_number": "GR25-022-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 45,
+    "fields": {
+      "item": 23,
+      "inventory_number": "GR25-023-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 46,
+    "fields": {
+      "item": 23,
+      "inventory_number": "GR25-023-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 47,
+    "fields": {
+      "item": 24,
+      "inventory_number": "GR25-024-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 48,
+    "fields": {
+      "item": 24,
+      "inventory_number": "GR25-024-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 49,
+    "fields": {
+      "item": 25,
+      "inventory_number": "GR25-025-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 50,
+    "fields": {
+      "item": 25,
+      "inventory_number": "GR25-025-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 51,
+    "fields": {
+      "item": 26,
+      "inventory_number": "GR25-026-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 52,
+    "fields": {
+      "item": 26,
+      "inventory_number": "GR25-026-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 53,
+    "fields": {
+      "item": 27,
+      "inventory_number": "GR25-027-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 54,
+    "fields": {
+      "item": 27,
+      "inventory_number": "GR25-027-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 55,
+    "fields": {
+      "item": 28,
+      "inventory_number": "GR25-028-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 56,
+    "fields": {
+      "item": 28,
+      "inventory_number": "GR25-028-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 57,
+    "fields": {
+      "item": 29,
+      "inventory_number": "GR25-029-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 58,
+    "fields": {
+      "item": 29,
+      "inventory_number": "GR25-029-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 59,
+    "fields": {
+      "item": 30,
+      "inventory_number": "GR25-030-1",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copy",
+    "pk": 60,
+    "fields": {
+      "item": 30,
+      "inventory_number": "GR25-030-2",
+      "is_serviceable": true
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 1,
+    "fields": {
+      "copy": 1,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 2,
+    "fields": {
+      "copy": 1,
+      "component": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 3,
+    "fields": {
+      "copy": 2,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 4,
+    "fields": {
+      "copy": 2,
+      "component": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 5,
+    "fields": {
+      "copy": 3,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 6,
+    "fields": {
+      "copy": 3,
+      "component": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 7,
+    "fields": {
+      "copy": 4,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 8,
+    "fields": {
+      "copy": 4,
+      "component": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 9,
+    "fields": {
+      "copy": 5,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 10,
+    "fields": {
+      "copy": 5,
+      "component": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 11,
+    "fields": {
+      "copy": 6,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 12,
+    "fields": {
+      "copy": 6,
+      "component": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 13,
+    "fields": {
+      "copy": 7,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 14,
+    "fields": {
+      "copy": 7,
+      "component": 10,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 15,
+    "fields": {
+      "copy": 8,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 16,
+    "fields": {
+      "copy": 8,
+      "component": 10,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 17,
+    "fields": {
+      "copy": 9,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 18,
+    "fields": {
+      "copy": 9,
+      "component": 10,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 19,
+    "fields": {
+      "copy": 10,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 20,
+    "fields": {
+      "copy": 10,
+      "component": 10,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 21,
+    "fields": {
+      "copy": 11,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 22,
+    "fields": {
+      "copy": 11,
+      "component": 10,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 23,
+    "fields": {
+      "copy": 12,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 24,
+    "fields": {
+      "copy": 12,
+      "component": 10,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 25,
+    "fields": {
+      "copy": 13,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 26,
+    "fields": {
+      "copy": 13,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 27,
+    "fields": {
+      "copy": 14,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 28,
+    "fields": {
+      "copy": 14,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 29,
+    "fields": {
+      "copy": 15,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 30,
+    "fields": {
+      "copy": 15,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 31,
+    "fields": {
+      "copy": 16,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 32,
+    "fields": {
+      "copy": 16,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 33,
+    "fields": {
+      "copy": 17,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 34,
+    "fields": {
+      "copy": 17,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 35,
+    "fields": {
+      "copy": 18,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 36,
+    "fields": {
+      "copy": 18,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 37,
+    "fields": {
+      "copy": 19,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 38,
+    "fields": {
+      "copy": 19,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 39,
+    "fields": {
+      "copy": 20,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 40,
+    "fields": {
+      "copy": 20,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 41,
+    "fields": {
+      "copy": 21,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 42,
+    "fields": {
+      "copy": 21,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 43,
+    "fields": {
+      "copy": 22,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 44,
+    "fields": {
+      "copy": 22,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 45,
+    "fields": {
+      "copy": 23,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 46,
+    "fields": {
+      "copy": 23,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 47,
+    "fields": {
+      "copy": 24,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 48,
+    "fields": {
+      "copy": 24,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 49,
+    "fields": {
+      "copy": 25,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 50,
+    "fields": {
+      "copy": 25,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 51,
+    "fields": {
+      "copy": 26,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 52,
+    "fields": {
+      "copy": 26,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 53,
+    "fields": {
+      "copy": 27,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 54,
+    "fields": {
+      "copy": 27,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 55,
+    "fields": {
+      "copy": 28,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 56,
+    "fields": {
+      "copy": 28,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 57,
+    "fields": {
+      "copy": 29,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 58,
+    "fields": {
+      "copy": 29,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 59,
+    "fields": {
+      "copy": 30,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 60,
+    "fields": {
+      "copy": 30,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 61,
+    "fields": {
+      "copy": 31,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 62,
+    "fields": {
+      "copy": 31,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 63,
+    "fields": {
+      "copy": 32,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 64,
+    "fields": {
+      "copy": 32,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 65,
+    "fields": {
+      "copy": 33,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 66,
+    "fields": {
+      "copy": 33,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 67,
+    "fields": {
+      "copy": 34,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 68,
+    "fields": {
+      "copy": 34,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 69,
+    "fields": {
+      "copy": 35,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 70,
+    "fields": {
+      "copy": 35,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 71,
+    "fields": {
+      "copy": 36,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 72,
+    "fields": {
+      "copy": 36,
+      "component": 5,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 73,
+    "fields": {
+      "copy": 37,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 74,
+    "fields": {
+      "copy": 37,
+      "component": 8,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 75,
+    "fields": {
+      "copy": 38,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 76,
+    "fields": {
+      "copy": 38,
+      "component": 8,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 77,
+    "fields": {
+      "copy": 39,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 78,
+    "fields": {
+      "copy": 39,
+      "component": 9,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 79,
+    "fields": {
+      "copy": 40,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 80,
+    "fields": {
+      "copy": 40,
+      "component": 9,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 81,
+    "fields": {
+      "copy": 41,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 82,
+    "fields": {
+      "copy": 41,
+      "component": 6,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 83,
+    "fields": {
+      "copy": 42,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 84,
+    "fields": {
+      "copy": 42,
+      "component": 6,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 85,
+    "fields": {
+      "copy": 43,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 86,
+    "fields": {
+      "copy": 43,
+      "component": 7,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 87,
+    "fields": {
+      "copy": 44,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 88,
+    "fields": {
+      "copy": 44,
+      "component": 7,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 89,
+    "fields": {
+      "copy": 45,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 90,
+    "fields": {
+      "copy": 45,
+      "component": 8,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 91,
+    "fields": {
+      "copy": 46,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 92,
+    "fields": {
+      "copy": 46,
+      "component": 8,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 93,
+    "fields": {
+      "copy": 47,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 94,
+    "fields": {
+      "copy": 47,
+      "component": 9,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 95,
+    "fields": {
+      "copy": 48,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 96,
+    "fields": {
+      "copy": 48,
+      "component": 9,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 97,
+    "fields": {
+      "copy": 49,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 98,
+    "fields": {
+      "copy": 49,
+      "component": 6,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 99,
+    "fields": {
+      "copy": 50,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 100,
+    "fields": {
+      "copy": 50,
+      "component": 6,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 101,
+    "fields": {
+      "copy": 51,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 102,
+    "fields": {
+      "copy": 51,
+      "component": 7,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 103,
+    "fields": {
+      "copy": 52,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 104,
+    "fields": {
+      "copy": 52,
+      "component": 7,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 105,
+    "fields": {
+      "copy": 53,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 106,
+    "fields": {
+      "copy": 53,
+      "component": 8,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 107,
+    "fields": {
+      "copy": 54,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 108,
+    "fields": {
+      "copy": 54,
+      "component": 8,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 109,
+    "fields": {
+      "copy": 55,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 110,
+    "fields": {
+      "copy": 55,
+      "component": 9,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 111,
+    "fields": {
+      "copy": 56,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 112,
+    "fields": {
+      "copy": 56,
+      "component": 9,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 113,
+    "fields": {
+      "copy": 57,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 114,
+    "fields": {
+      "copy": 57,
+      "component": 6,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 115,
+    "fields": {
+      "copy": 58,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 116,
+    "fields": {
+      "copy": 58,
+      "component": 6,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 117,
+    "fields": {
+      "copy": 59,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 118,
+    "fields": {
+      "copy": 59,
+      "component": 7,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 119,
+    "fields": {
+      "copy": 60,
+      "component": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.copycomponent",
+    "pk": 120,
+    "fields": {
+      "copy": 60,
+      "component": 7,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 1,
+    "fields": {
+      "name": "Тариф 01",
+      "limit": 2,
+      "price": "900.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 2,
+    "fields": {
+      "name": "Тариф 02",
+      "limit": 3,
+      "price": "1000.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 3,
+    "fields": {
+      "name": "Тариф 03",
+      "limit": 4,
+      "price": "1100.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 4,
+    "fields": {
+      "name": "Тариф 04",
+      "limit": 2,
+      "price": "1200.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 5,
+    "fields": {
+      "name": "Тариф 05",
+      "limit": 3,
+      "price": "1300.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 6,
+    "fields": {
+      "name": "Тариф 06",
+      "limit": 4,
+      "price": "1400.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 7,
+    "fields": {
+      "name": "Тариф 07",
+      "limit": 2,
+      "price": "1500.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 8,
+    "fields": {
+      "name": "Тариф 08",
+      "limit": 3,
+      "price": "1600.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 9,
+    "fields": {
+      "name": "Тариф 09",
+      "limit": 4,
+      "price": "1700.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rental.plan",
+    "pk": 10,
+    "fields": {
+      "name": "Тариф 10",
+      "limit": 2,
+      "price": "1800.00",
+      "is_active": true
+    }
+  }
+]

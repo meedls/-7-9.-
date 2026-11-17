@@ -6,21 +6,14 @@
 <nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">Подписка</span></nav>
 <section aria-labelledby="plans-title">
     <h1 id="plans-title">Подписка на игры</h1>
-    <p class="intro">Выберите, сколько игр хотите держать одновременно. Каждый тариф действует 30 дней.</p>
-    <p class="page-example-note">Тарифы показаны для примера. Оформление подписки будет доступно позже.</p>
+    <p class="intro">Выберите, сколько игр хотите держать одновременно.</p>
     <div class="plans-grid">
+        {% for plan in plans %}
         <article class="plan-card">
-            <h2>Одна игра</h2><p class="plan-price">490 ₽ за 30 дней</p>
-            <p class="plan-detail">1 позиция на руках</p><button type="button" disabled>Выбрать тариф</button>
+            <h2>{{ plan.name }}</h2><p class="plan-price">{{ plan.price|floatformat:2 }} ₽ в месяц</p>
+            <p class="plan-detail">Лимит позиций: {{ plan.limit }}</p><button type="button" disabled>Выбрать тариф</button>
         </article>
-        <article class="plan-card">
-            <h2>Две игры</h2><p class="plan-price">790 ₽ за 30 дней</p>
-            <p class="plan-detail">2 позиции на руках</p><button type="button" disabled>Выбрать тариф</button>
-        </article>
-        <article class="plan-card">
-            <h2>Три игры</h2><p class="plan-price">990 ₽ за 30 дней</p>
-            <p class="plan-detail">3 позиции на руках</p><button type="button" disabled>Выбрать тариф</button>
-        </article>
+        {% empty %}<p>Тарифы пока не добавлены.</p>{% endfor %}
     </div>
 </section>
 {% endblock %}

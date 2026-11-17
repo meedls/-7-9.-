@@ -1,34 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Диксит — Прокат игр{% endblock %}
+{% block title %}{{ item.title }} — Прокат игр{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'rental/item-plans.css' %}">{% endblock %}
 {% block content %}
-<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">Карточка игры</span></nav>
-<h1>Диксит</h1>
-<p class="intro">Подбирайте ассоциации к иллюстрациям на картах.</p>
-<p class="page-example-note">Пример карточки. Данные появятся после подключения каталога.</p>
+<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">{{ item.title }}</span></nav>
+<h1>{{ item.title }}</h1>
+<p class="intro">{{ item.description }}</p>
 <div class="item-layout">
     <section class="item-card" aria-labelledby="item-type">
-        <div class="item-art" aria-hidden="true"><svg viewBox="0 0 120 70"><rect x="18" y="19" width="31" height="47" rx="4" fill="#496e61"/><rect x="46" y="12" width="31" height="47" rx="4" fill="#b66f43"/><rect x="74" y="8" width="31" height="47" rx="4" fill="#426681"/><circle cx="31" cy="32" r="6" fill="#f5c866"/><circle cx="59" cy="25" r="6" fill="#ffdf9d"/><circle cx="89" cy="24" r="7" fill="#dceae7"/></svg></div>
-        <h2 id="item-type">Настольная игра</h2>
-        <p>150 ₽ за сутки · по подписке включено</p>
-        <p class="item-highlight">2 экземпляра свободны</p>
+        {% if item.cover %}<img class="item-cover" src="{{ item.cover.url }}" alt="Обложка {{ item.title }}">{% else %}<img class="item-cover" src="{% static 'rental/gta.jpg' %}" alt="Иллюстрация GTA VI — изображение-заглушка" width="596" height="335">{% endif %}
+        <h2 id="item-type">{{ item.category.name }}</h2>
+        <p>{{ item.daily_price|floatformat:2 }} ₽ за сутки</p>
+        <p>Платформы: {% for platform in item.platforms.all %}{{ platform.name }}{% if not forloop.last %}, {% endif %}{% empty %}не указаны{% endfor %}</p>
+        <p>Добавлено: {{ item.created_at|date:'d.m.Y' }}</p>
+        {% if item.available_count %}<p class="item-highlight">Доступно экземпляров: {{ item.available_count }}</p>{% else %}<p>Нет доступных экземпляров</p>{% endif %}
     </section>
     <div class="item-extra">
         <section class="item-card" aria-labelledby="item-contents">
-            <h2 id="item-contents">Комплектация</h2>
-            <p>Коробка, поле, карты и жетоны</p>
-            <p class="item-highlight">Проверяется при возврате</p>
-        </section>
-        <section class="item-card" aria-labelledby="item-reviews">
-            <h2 id="item-reviews">Отзывы игроков</h2>
-            <p>«Хорошо подходит для большой компании».</p>
-            <p class="item-highlight">Оценка 5 из 5</p>
+            <h2 id="item-contents">Комплектация экземпляров</h2>
+            {% for copy in copies %}
+                <h3>{{ copy.inventory_number }}</h3>
+                <ul>{% for component in copy.composition.all %}<li>{{ component.component.name }} — {{ component.quantity }} шт.</li>{% empty %}<li>Комплектация не указана</li>{% endfor %}</ul>
+            {% empty %}<p>Экземпляров пока нет.</p>{% endfor %}
         </section>
     </div>
-    <div class="item-actions">
-        <button type="button" disabled>Оформить аренду</button>
-        <a href="{% url 'rental:catalog' %}">К каталогу</a>
-    </div>
+    <div class="item-actions"><button type="button" disabled>Оформить аренду</button><a href="{% url 'rental:catalog' %}">К каталогу</a></div>
 </div>
 {% endblock %}

@@ -1,0 +1,8 @@
+{% if page_obj.paginator.num_pages > 1 %}
+    {% if request.resolver_match.url_name == 'search' %}{% url 'rental:search' as page_url %}{% else %}{% url 'rental:catalog' as page_url %}{% endif %}
+    <nav class="pagination" aria-label="Страницы результатов">
+        {% if page_obj.has_previous %}<a href="{{ page_url }}?{% if query %}q={{ query|urlencode }}&amp;{% endif %}page={{ page_obj.previous_page_number }}">Назад</a>{% endif %}
+        <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}<a href="{{ page_url }}?{% if query %}q={{ query|urlencode }}&amp;{% endif %}page={{ page_obj.next_page_number }}">Вперёд</a>{% endif %}
+    </nav>
+{% endif %}
