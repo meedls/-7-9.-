@@ -23,8 +23,8 @@ button { border: 0; border-radius: 5px; min-height: 44px; background: var(--gree
 .filters button, .card button { width: 100%; }
 button:disabled { opacity: 1; cursor: not-allowed; }
 .reset { display: block; color: var(--green); font-size: 15px; font-weight: 700; margin-top: 8px; }
-.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.card { background: #fff; border-radius: 8px; padding: 20px 14px 14px; display: flex; flex-direction: column; }
+.cards { display: flex; flex-wrap: wrap; gap: 16px; }
+.card { flex: 0 0 calc((100% - 32px) / 3); min-width: 0; background: #fff; border-radius: 8px; padding: 20px 14px 14px; display: flex; flex-direction: column; }
 .art { height: 86px; border-radius: 5px; display: grid; place-items: center; }
 .art svg { width: 120px; height: 70px; }
 .art-cards { background: #dceae3; } .art-train { background: #ecdfca; } .art-car { background: #dce7ef; }
@@ -43,13 +43,13 @@ button:disabled { opacity: 1; cursor: not-allowed; }
     .header-content { flex-wrap: wrap; padding-block: 12px; }
     .main-nav { margin-left: auto; }
     .catalog-layout { grid-template-columns: 1fr; }
-    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { flex-basis: calc((100% - 16px) / 2); }
     .filter-options, .reset { display: none; }
 }
 @media (max-width: 560px) {
     .header-content { gap: 12px; } .brand { font-size: 20px; }
     .main-nav { gap: 10px; font-size: 13px; } .nav-dot { display: none; }
     h1 { font-size: 29px; margin: 22px 0 12px; }
-    .intro { font-size: 16px; } .cards { grid-template-columns: 1fr; }
+    .intro { font-size: 16px; } .card { flex-basis: 100%; }
     .card .availability { margin-top: 16px; }
 }
