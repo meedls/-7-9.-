@@ -3,9 +3,9 @@
     {% for item in page_obj %}
     <article class="card">
         {% if item.cover %}
-        <img class="catalog-cover" src="{{ item.cover.url }}" alt="{{ item.title }}" width="320" height="180" loading="lazy">
+        <img class="catalog-cover" src="{{ item.cover.url }}" alt="{{ item.title }}" width="{{ item.cover.width }}" height="{{ item.cover.height }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
         {% else %}
-        <img class="catalog-cover" src="{% static 'rental/gta.jpg' %}" alt="Иллюстрация GTA VI — изображение-заглушка" width="596" height="335" loading="lazy">
+        <img class="catalog-cover" src="{% static 'rental/gta-card.jpg' %}" srcset="{% static 'rental/gta-card.jpg' %} 320w, {% static 'rental/gta.jpg' %} 596w" sizes="(max-width: 560px) calc(100vw - 60px), (max-width: 800px) calc((100vw - 104px) / 2), (max-width: 1168px) calc((100vw - 452px) / 3), 239px" alt="Иллюстрация GTA VI — изображение-заглушка" width="320" height="180" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
         {% endif %}
         <h2>{{ item.title }}</h2>
         <p>{{ item.category.name }}{% for platform in item.platforms.all %}{% if forloop.first %} · {% else %}, {% endif %}{{ platform.name }}{% endfor %}</p>

@@ -1,10 +1,14 @@
 from decimal import Decimal
-from io import StringIO
+from io import BytesIO, StringIO
+from tempfile import TemporaryDirectory
+
+from PIL import Image
 
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.core.management.base import CommandError
-from django.test import TestCase
+from django.core.files.base import ContentFile
+from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -85,6 +89,16 @@ class CatalogDataTests(TestCase):
         Item.objects.all().update(is_published=False)
         self.assertContains(self.client.get(reverse('rental:catalog')), 'В каталоге пока нет игр.')
         self.assertContains(self.client.get(reverse('rental:search'), {'q': 'Game'}), 'По вашему запросу ничего не найдено.')
+
+    def test_uploaded_cover_uses_real_dimensions(self):
+        with TemporaryDirectory() as media_root, override_settings(MEDIA_ROOT=media_root):
+            image_data = BytesIO()
+            Image.new('RGB', (80, 120)).save(image_data, format='PNG')
+            self.items[0].cover.save('cover.png', ContentFile(image_data.getvalue()))
+            catalog = self.client.get(reverse('rental:catalog'))
+            detail = self.client.get(reverse('rental:item', args=[self.items[0].pk]))
+            for response in (catalog, detail):
+                self.assertContains(response, 'width="80" height="120"')
 
 
 class CatalogImportTests(TestCase):
