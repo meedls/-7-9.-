@@ -14,10 +14,21 @@ class CatalogRouteTests(SimpleTestCase):
         self.assertContains(response, 'Игры и консоли')
         self.assertContains(response, f'href="{url}"', count=3)
 
-    def test_planned_pages_have_named_links(self):
+    def test_main_navigation_links(self):
         response = self.client.get(reverse('rental:catalog'))
-        for name in ('subscription', 'login'):
+        for name in ('subscription', 'login', 'loans', 'item', 'search'):
             with self.subTest(name=name):
                 url = reverse(f'rental:{name}')
-                self.assertContains(response, f'href="{url}"')
-                self.assertContains(self.client.get(url), 'находится в разработке')
+                self.assertContains(response, url)
+
+    def test_all_pages_render(self):
+        for name in ('catalog', 'item', 'subscription', 'login', 'loans', 'search'):
+            with self.subTest(name=name):
+                response = self.client.get(reverse(f'rental:{name}'))
+                self.assertEqual(response.status_code, 200)
+                self.assertContains(response, '<h1', count=1)
+
+    def test_search_query_is_escaped(self):
+        response = self.client.get(reverse('rental:search'), {'q': '<script>alert(1)</script>'})
+        self.assertNotContains(response, '<script>alert(1)</script>')
+        self.assertContains(response, '&lt;script&gt;alert(1)&lt;/script&gt;')

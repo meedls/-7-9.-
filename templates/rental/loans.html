@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Мои аренды — Прокат игр{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/account-pages.css' %}">{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Мои аренды</span></nav>
+<section aria-labelledby="loans-title">
+    <h1 id="loans-title">Мои аренды</h1>
+    <p class="intro">Следите за выдачами и оформляйте возврат, когда закончите играть.</p>
+    <p class="account-note">Это примеры аренд из макета. Личные данные появятся после подключения базы и авторизации.</p>
+    <div class="loan-grid">
+        <article class="loan-card">
+            <h2>Диксит</h2>
+            <p>Выдача № 48 · экземпляр DX-02</p>
+            <p class="loan-status loan-status-active">На руках</p>
+            <button type="button" disabled>Оформить возврат</button>
+        </article>
+        <article class="loan-card">
+            <h2>Каркассон</h2>
+            <p>Выдача № 42 · экземпляр KC-01</p>
+            <p class="loan-status loan-status-waiting">Ожидает проверки</p>
+        </article>
+        <article class="loan-card">
+            <h2>Дженга</h2>
+            <p>Выдача № 37 · экземпляр JG-01</p>
+            <p class="loan-status">Возвращено</p>
+        </article>
+    </div>
+</section>
+{% endblock %}

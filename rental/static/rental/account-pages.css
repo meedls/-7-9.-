@@ -1,0 +1,84 @@
+.account-note {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+
+.account-login form {
+    max-width: 676px;
+}
+
+.account-field {
+    margin-bottom: 14px;
+}
+
+.account-field label {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.account-field input {
+    width: 100%;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: #fff;
+    color: var(--muted);
+    opacity: 1;
+    padding: 0 12px;
+    font: inherit;
+}
+
+.account-submit {
+    width: min(330px, 100%);
+    margin-top: 18px;
+}
+
+.account-register {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.loan-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.loan-card {
+    padding: 18px 16px 16px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.loan-card h2 {
+    margin: 0 0 10px;
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+.loan-card p {
+    margin: 0 0 12px;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.loan-card .loan-status {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.loan-card .loan-status-active { color: var(--green); }
+.loan-card .loan-status-waiting { color: #805315; }
+.loan-card button { width: 100%; margin-top: 18px; }
+
+@media (max-width: 700px) {
+    .loan-grid { grid-template-columns: 1fr; }
+    .account-submit { width: 100%; }
+}

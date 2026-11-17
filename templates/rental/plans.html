@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Подписка — Прокат игр{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/item-plans.css' %}">{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">Подписка</span></nav>
+<section aria-labelledby="plans-title">
+    <h1 id="plans-title">Подписка на игры</h1>
+    <p class="intro">Выберите, сколько игр хотите держать одновременно. Каждый тариф действует 30 дней.</p>
+    <p class="page-example-note">Тарифы показаны для примера. Оформление подписки будет доступно позже.</p>
+    <div class="plans-grid">
+        <article class="plan-card">
+            <h2>Одна игра</h2><p class="plan-price">490 ₽ за 30 дней</p>
+            <p class="plan-detail">1 позиция на руках</p><button type="button" disabled>Выбрать тариф</button>
+        </article>
+        <article class="plan-card">
+            <h2>Две игры</h2><p class="plan-price">790 ₽ за 30 дней</p>
+            <p class="plan-detail">2 позиции на руках</p><button type="button" disabled>Выбрать тариф</button>
+        </article>
+        <article class="plan-card">
+            <h2>Три игры</h2><p class="plan-price">990 ₽ за 30 дней</p>
+            <p class="plan-detail">3 позиции на руках</p><button type="button" disabled>Выбрать тариф</button>
+        </article>
+    </div>
+</section>
+{% endblock %}

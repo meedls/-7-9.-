@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Поиск — Прокат игр{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">Поиск</span></nav>
+<section aria-labelledby="search-title">
+    <h1 id="search-title">Результаты поиска</h1>
+    <div class="search-panel">
+        <form action="{% url 'rental:search' %}" method="get" role="search">
+            <label for="search-query">Название игры</label>
+            <input id="search-query" name="q" type="search" value="{{ query }}" placeholder="Название игры">
+            <button type="submit">Найти</button>
+        </form>
+        {% if query %}<p>Запрос: «{{ query }}»</p>{% endif %}
+        <p>Результаты появятся после подключения данных каталога.</p>
+        <a href="{% url 'rental:catalog' %}">Вернуться в каталог</a>
+    </div>
+</section>
+{% endblock %}

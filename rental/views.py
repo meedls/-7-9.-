@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def catalog(request):
@@ -7,8 +6,20 @@ def catalog(request):
 
 
 def subscription(request):
-    return HttpResponse('Страница подписки находится в разработке.', content_type='text/plain; charset=utf-8')
+    return render(request, 'rental/plans.html')
 
 
 def login(request):
-    return HttpResponse('Страница входа находится в разработке.', content_type='text/plain; charset=utf-8')
+    return render(request, 'rental/login.html')
+
+
+def item(request):
+    return render(request, 'rental/item.html')
+
+
+def loans(request):
+    return render(request, 'rental/loans.html')
+
+
+def search(request):
+    return render(request, 'rental/search.html', {'query': request.GET.get('q', '').strip()})

@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Прокат игр{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'rental/style.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <header class="site-header">
         <div class="container header-content">
             <a class="brand" href="{% url 'rental:catalog' %}"><span class="dice" aria-hidden="true">••<br>••</span>Прокат игр</a>
             <nav class="main-nav" aria-label="Основная навигация">
-                <a href="{% url 'rental:catalog' %}" aria-current="page">Каталог</a><span class="nav-dot" aria-hidden="true">·</span><a href="{% url 'rental:subscription' %}">Подписка</a>
+                <a href="{% url 'rental:catalog' %}"{% if request.resolver_match.url_name == 'catalog' %} aria-current="page"{% endif %}>Каталог</a><span class="nav-dot" aria-hidden="true">·</span><a href="{% url 'rental:subscription' %}">Подписка</a><span class="nav-dot" aria-hidden="true">·</span><a href="{% url 'rental:loans' %}">Мои аренды</a>
             </nav>
             <a class="login" href="{% url 'rental:login' %}">Войти</a>
         </div>
