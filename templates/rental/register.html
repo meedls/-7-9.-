@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация — Прокат игр{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/account-pages.css' %}">{% endblock %}
+{% block content %}
+<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Регистрация</span></nav>
+<section class="account-login" aria-labelledby="register-title">
+    <h1 id="register-title">Регистрация</h1>
+    <p class="intro">Создайте аккаунт, чтобы пользоваться сервисом проката игр.</p>
+    <form method="post" aria-label="Форма регистрации" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+        {% for field in form %}
+        <div class="account-field">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<div class="field-help" id="{{ field.auto_id }}_helptext">{{ field.help_text }}</div>{% endif %}
+            {% if field.errors %}<div class="field-errors" id="{{ field.auto_id }}_error" role="alert">{{ field.errors }}</div>{% endif %}
+        </div>
+        {% endfor %}
+        <button class="account-submit" type="submit">Зарегистрироваться</button>
+    </form>
+    <p class="account-register">Уже есть аккаунт? <a href="{% url 'rental:login' %}">Войти</a></p>
+</section>
+{% endblock %}

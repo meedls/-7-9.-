@@ -10,6 +10,7 @@
     --accent: #f5c866;
     --secondary: #e2ebdd;
     --image-bg: #dceae3;
+    --error: #8c292c;
 
     /* Шаг сетки UI-kit — 8 px; половинные шаги нужны для мелких элементов. */
     --space-half: 4px;
@@ -42,6 +43,7 @@ img { max-width: 100%; }
 .main-nav { display: flex; align-items: center; gap: var(--space-18px); font-size: 15px; font-weight: 700; }
 .login { font-size: 15px; font-weight: 700; }
 .main-content { flex: 1; padding-top: var(--space-26px); padding-bottom: var(--space-52px); }
+.message { padding: var(--space-1-half) var(--space-2); border-radius: 5px; background: var(--secondary); color: var(--ink); }
 .main-content a:not(.card-link) { display: inline-flex; align-items: center; min-height: 40px; }
 .breadcrumbs { display: flex; flex-wrap: wrap; gap: var(--space-1-half); align-items: center; font-size: 13px; color: var(--muted); }
 .breadcrumbs a { color: inherit; text-decoration: none; }

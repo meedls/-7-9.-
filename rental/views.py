@@ -1,9 +1,14 @@
 import re
 
 from django.core.paginator import Paginator
+from django.contrib import messages
+from django.contrib.auth import login as auth_login, logout as auth_logout
+from django.contrib.auth.forms import AuthenticationForm
 from django.db.models import Prefetch
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
 
+from .forms import RegistrationForm
 from .models import Copy, Item, Loan, Plan
 
 
@@ -40,7 +45,33 @@ def subscription(request):
 
 
 def login(request):
-    return render(request, 'rental/login.html')
+    if request.user.is_authenticated:
+        return redirect('rental:catalog')
+    form = AuthenticationForm(request, data=request.POST if request.method == 'POST' else None)
+    if request.method == 'POST' and form.is_valid():
+        auth_login(request, form.get_user())
+        messages.success(request, 'Вы вошли в аккаунт.')
+        return redirect('rental:catalog')
+    return render(request, 'rental/login.html', {'form': form})
+
+
+def register(request):
+    if request.user.is_authenticated:
+        return redirect('rental:catalog')
+    form = RegistrationForm(request.POST if request.method == 'POST' else None)
+    if request.method == 'POST' and form.is_valid():
+        user = form.save()
+        auth_login(request, user)
+        messages.success(request, 'Аккаунт создан. Вы вошли в систему.')
+        return redirect('rental:catalog')
+    return render(request, 'rental/register.html', {'form': form})
+
+
+@require_POST
+def logout(request):
+    auth_logout(request)
+    messages.success(request, 'Вы вышли из аккаунта.')
+    return redirect('rental:catalog')
 
 
 def item(request, pk):

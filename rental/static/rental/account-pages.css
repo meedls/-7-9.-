@@ -32,6 +32,11 @@
     font: inherit;
 }
 
+.field-errors, .form-errors { color: var(--error); font-size: 14px; }
+.field-errors ul, .form-errors ul { margin: var(--space-1) 0; padding-left: var(--space-2-half); }
+.field-help { margin-top: var(--space-1); color: var(--muted); font-size: 14px; line-height: 1.5; }
+.field-help ul { margin: var(--space-1) 0; padding-left: var(--space-2-half); }
+
 .account-submit {
     width: min(330px, 100%);
     margin-top: var(--space-18px);

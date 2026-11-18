@@ -7,20 +7,18 @@
 <section class="account-login" aria-labelledby="login-title">
     <h1 id="login-title">Вход</h1>
     <p class="intro">Войдите, чтобы оформить аренду и следить за возвратами.</p>
-    <p class="account-note">Форма показана для ознакомления. Вход будет доступен после подключения авторизации.</p>
-    <form aria-label="Форма входа">
-        <fieldset disabled>
+    <form method="post" aria-label="Форма входа" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+        {% for field in form %}
             <div class="account-field">
-                <label for="login-username">Логин</label>
-                <input id="login-username" name="username" type="text" placeholder="Ваш логин" autocomplete="username">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}<div class="field-errors" id="{{ field.auto_id }}_error" role="alert">{{ field.errors }}</div>{% endif %}
             </div>
-            <div class="account-field">
-                <label for="login-password">Пароль</label>
-                <input id="login-password" name="password" type="password" placeholder="Ваш пароль" autocomplete="current-password">
-            </div>
-            <button class="account-submit" type="submit">Войти</button>
-        </fieldset>
+        {% endfor %}
+        <button class="account-submit" type="submit">Войти</button>
     </form>
-    <p class="account-register">Регистрация появится позже.</p>
+    <p class="account-register">Нет аккаунта? <a href="{% url 'rental:register' %}">Зарегистрироваться</a></p>
 </section>
 {% endblock %}

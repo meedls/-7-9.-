@@ -22,11 +22,18 @@
                 <nav class="main-nav" aria-label="Основная навигация">
                     <a href="{% url 'rental:catalog' %}"{% if request.resolver_match.url_name == 'catalog' %} aria-current="page"{% endif %}>Каталог</a><span class="nav-dot" aria-hidden="true">·</span><a href="{% url 'rental:subscription' %}">Подписка</a><span class="nav-dot" aria-hidden="true">·</span><a href="{% url 'rental:loans' %}">Мои аренды</a>
                 </nav>
-                <a class="login" href="{% url 'rental:login' %}">Войти</a>
+                {% if user.is_authenticated %}
+                    <form class="logout-form" action="{% url 'rental:logout' %}" method="post">{% csrf_token %}<button type="submit">Выйти</button></form>
+                {% else %}
+                    <a class="login" href="{% url 'rental:login' %}">Войти</a>
+                {% endif %}
             </div>
         </div>
     </header>
-    <main class="container main-content">{% block content %}{% endblock %}</main>
+    <main class="container main-content">
+        {% if messages %}<div class="messages" role="status">{% for message in messages %}<p class="message">{{ message }}</p>{% endfor %}</div>{% endif %}
+        {% block content %}{% endblock %}
+    </main>
     <footer class="site-footer"><div class="container">Прокат игр и оборудования</div></footer>
 </body>
 </html>

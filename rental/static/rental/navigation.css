@@ -2,6 +2,8 @@
 .site-menu { display: flex; align-items: center; flex: 1; gap: var(--space-3); }
 .site-menu .main-nav { margin: 0 auto; }
 .site-menu a { display: inline-flex; align-items: center; min-height: 40px; }
+.logout-form { margin: 0; }
+.logout-form button { min-height: 40px; padding: 0; background: transparent; color: var(--surface); cursor: pointer; font-size: 15px; }
 .brand { min-height: 40px; }
 .menu-toggle:focus-visible, .site-header a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -15,4 +17,5 @@
     .site-menu .main-nav { flex-direction: column; align-items: stretch; gap: 0; margin: 0; font-size: 15px; }
     .site-menu .nav-dot { display: none; }
     .site-menu a { width: 100%; padding: 0 var(--space-1); }
+    .logout-form button { width: 100%; text-align: left; padding: 0 var(--space-1); }
 }
