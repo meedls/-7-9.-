@@ -79,6 +79,7 @@ class AccountFormTests(TestCase):
                 self.assertTrue(response.context['form'].is_bound)
                 for field in fields:
                     self.assertIn(field, response.context['form'].errors)
+                    self.assertContains(response, f'id="id_{field}_error"', count=1)
 
     def test_incorrect_login_displays_error_and_keeps_username(self):
         response = self.client.post(

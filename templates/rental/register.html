@@ -27,7 +27,7 @@
                 <div class="field-help" id="{{ field.auto_id }}_helptext">{{ field.help_text }}</div>
             {% endif %}
             {% if field.errors %}
-                <div class="field-errors" id="{{ field.auto_id }}_error" role="alert">{{ field.errors }}</div>
+                <div class="field-errors" role="alert">{{ field.errors }}</div>
             {% endif %}
         </div>
         {% endfor %}
