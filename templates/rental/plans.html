@@ -1,19 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Подписка — Прокат игр{% endblock %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/item-plans.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'rental/item-plans.css' %}">
+{% endblock %}
 {% block content %}
-<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">Подписка</span></nav>
+<nav class="breadcrumbs" aria-label="Навигационная цепочка">
+    <a href="{% url 'rental:catalog' %}">Каталог</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Подписка</span>
+</nav>
 <section aria-labelledby="plans-title">
     <h1 id="plans-title">Подписка на игры</h1>
     <p class="intro">Выберите, сколько игр хотите держать одновременно.</p>
     <div class="plans-grid">
         {% for plan in plans %}
         <article class="plan-card">
-            <h2>{{ plan.name }}</h2><p class="plan-price">{{ plan.price|floatformat:2 }} ₽ в месяц</p>
-            <p class="plan-detail">Лимит позиций: {{ plan.limit }}</p><button type="button" disabled>Выбрать тариф</button>
+            <h2>{{ plan.name }}</h2>
+            <p class="plan-price">{{ plan.price|floatformat:2 }} ₽ в месяц</p>
+            <p class="plan-detail">Лимит позиций: {{ plan.limit }}</p>
+            <button type="button" disabled>Выбрать тариф</button>
         </article>
-        {% empty %}<p>Тарифы пока не добавлены.</p>{% endfor %}
+        {% empty %}
+        <p>Тарифы пока не добавлены.</p>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

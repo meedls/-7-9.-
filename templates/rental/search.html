@@ -1,18 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Поиск — Прокат игр{% endblock %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/catalog-data.css' %}"><script src="{% static 'rental/catalog-interactions.js' %}" defer></script>{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'rental/catalog-data.css' %}">
+<script src="{% static 'rental/catalog-interactions.js' %}" defer></script>
+{% endblock %}
 {% block content %}
-<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">Поиск</span></nav>
+<nav class="breadcrumbs" aria-label="Навигационная цепочка">
+    <a href="{% url 'rental:catalog' %}">Каталог</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Поиск</span>
+</nav>
 <section aria-labelledby="search-title">
     <h1 id="search-title">Результаты поиска</h1>
     <div class="search-panel search-panel-results">
         <form action="{% url 'rental:search' %}" method="get" role="search">
             <label for="search-query">Название игры</label>
-            <input id="search-query" name="q" type="search" value="{{ query }}" placeholder="Название игры">
+            <input
+                id="search-query"
+                name="q"
+                type="search"
+                value="{{ query }}"
+                placeholder="Название игры"
+            >
             <button type="submit">Найти</button>
         </form>
-        {% if query %}<p>Запрос: «{{ query }}»</p>{% endif %}
+        {% if query %}
+            <p>Запрос: «{{ query }}»</p>
+        {% endif %}
     </div>
     {% if query %}
         {% include 'rental/partials/_cards.html' with empty_message='По вашему запросу ничего не найдено.' %}

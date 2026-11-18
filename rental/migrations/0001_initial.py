@@ -9,7 +9,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -20,8 +19,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True, verbose_name='Название')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'name',
+                    models.CharField(
+                        max_length=100, unique=True, verbose_name='Название'
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Категория',
@@ -32,8 +44,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Component',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True, verbose_name='Название детали')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'name',
+                    models.CharField(
+                        max_length=100, unique=True, verbose_name='Название детали'
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Деталь',
@@ -44,9 +69,25 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Copy',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('inventory_number', models.CharField(max_length=30, unique=True, verbose_name='Инвентарный номер')),
-                ('is_serviceable', models.BooleanField(default=True, verbose_name='Исправен')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'inventory_number',
+                    models.CharField(
+                        max_length=30, unique=True, verbose_name='Инвентарный номер'
+                    ),
+                ),
+                (
+                    'is_serviceable',
+                    models.BooleanField(default=True, verbose_name='Исправен'),
+                ),
             ],
             options={
                 'verbose_name': 'Экземпляр',
@@ -57,8 +98,19 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='InspectionLine',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('returned_quantity', models.PositiveSmallIntegerField(verbose_name='Возвращено')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'returned_quantity',
+                    models.PositiveSmallIntegerField(verbose_name='Возвращено'),
+                ),
                 ('is_intact', models.BooleanField(verbose_name='Без повреждений')),
                 ('notes', models.TextField(blank=True, verbose_name='Замечания')),
             ],
@@ -71,8 +123,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Platform',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True, verbose_name='Название')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'name',
+                    models.CharField(
+                        max_length=100, unique=True, verbose_name='Название'
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Платформа',
@@ -83,10 +148,40 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CopyComponent',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.PositiveSmallIntegerField(validators=[django.core.validators.MinValueValidator(1)], verbose_name='Количество')),
-                ('component', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='composition', to='rental.component', verbose_name='Деталь')),
-                ('copy', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='composition', to='rental.copy', verbose_name='Экземпляр')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'quantity',
+                    models.PositiveSmallIntegerField(
+                        validators=[django.core.validators.MinValueValidator(1)],
+                        verbose_name='Количество',
+                    ),
+                ),
+                (
+                    'component',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='composition',
+                        to='rental.component',
+                        verbose_name='Деталь',
+                    ),
+                ),
+                (
+                    'copy',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='composition',
+                        to='rental.copy',
+                        verbose_name='Экземпляр',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Элемент комплектации',
@@ -97,17 +192,54 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='copy',
             name='components',
-            field=models.ManyToManyField(related_name='copies', through='rental.CopyComponent', to='rental.component', verbose_name='Комплектация'),
+            field=models.ManyToManyField(
+                related_name='copies',
+                through='rental.CopyComponent',
+                to='rental.component',
+                verbose_name='Комплектация',
+            ),
         ),
         migrations.CreateModel(
             name='Fine',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('reason', models.CharField(max_length=250, verbose_name='Причина')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=8, validators=[django.core.validators.MinValueValidator(0)], verbose_name='Сумма')),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Начислен')),
-                ('paid_at', models.DateTimeField(blank=True, null=True, verbose_name='Оплачен')),
-                ('line', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='fines', to='rental.inspectionline', verbose_name='Строка проверки')),
+                (
+                    'amount',
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=8,
+                        validators=[django.core.validators.MinValueValidator(0)],
+                        verbose_name='Сумма',
+                    ),
+                ),
+                (
+                    'created_at',
+                    models.DateTimeField(
+                        default=django.utils.timezone.now, verbose_name='Начислен'
+                    ),
+                ),
+                (
+                    'paid_at',
+                    models.DateTimeField(blank=True, null=True, verbose_name='Оплачен'),
+                ),
+                (
+                    'line',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='fines',
+                        to='rental.inspectionline',
+                        verbose_name='Строка проверки',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Штраф',
@@ -118,16 +250,67 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Item',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('title', models.CharField(max_length=150, verbose_name='Название')),
                 ('description', models.TextField(verbose_name='Описание')),
-                ('daily_price', models.DecimalField(decimal_places=2, max_digits=8, validators=[django.core.validators.MinValueValidator(0)], verbose_name='Цена за сутки')),
-                ('cover', models.ImageField(blank=True, upload_to='covers/', validators=[rental.models.validate_cover], verbose_name='Фото')),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Дата добавления')),
-                ('is_published', models.BooleanField(default=True, verbose_name='Опубликована')),
-                ('players_min', models.PositiveSmallIntegerField(blank=True, null=True, verbose_name='Минимум игроков')),
-                ('players_max', models.PositiveSmallIntegerField(blank=True, null=True, verbose_name='Максимум игроков')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='items', to='rental.category', verbose_name='Категория')),
+                (
+                    'daily_price',
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=8,
+                        validators=[django.core.validators.MinValueValidator(0)],
+                        verbose_name='Цена за сутки',
+                    ),
+                ),
+                (
+                    'cover',
+                    models.ImageField(
+                        blank=True,
+                        upload_to='covers/',
+                        validators=[rental.models.validate_cover],
+                        verbose_name='Фото',
+                    ),
+                ),
+                (
+                    'created_at',
+                    models.DateTimeField(
+                        default=django.utils.timezone.now,
+                        verbose_name='Дата добавления',
+                    ),
+                ),
+                (
+                    'is_published',
+                    models.BooleanField(default=True, verbose_name='Опубликована'),
+                ),
+                (
+                    'players_min',
+                    models.PositiveSmallIntegerField(
+                        blank=True, null=True, verbose_name='Минимум игроков'
+                    ),
+                ),
+                (
+                    'players_max',
+                    models.PositiveSmallIntegerField(
+                        blank=True, null=True, verbose_name='Максимум игроков'
+                    ),
+                ),
+                (
+                    'category',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='items',
+                        to='rental.category',
+                        verbose_name='Категория',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Позиция каталога',
@@ -138,22 +321,111 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='copy',
             name='item',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='copies', to='rental.item', verbose_name='Позиция'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='copies',
+                to='rental.item',
+                verbose_name='Позиция',
+            ),
         ),
         migrations.CreateModel(
             name='Loan',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('daily_days', models.PositiveSmallIntegerField(blank=True, null=True, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(30)], verbose_name='Суток аренды')),
-                ('daily_price_snapshot', models.DecimalField(blank=True, decimal_places=2, max_digits=8, null=True, verbose_name='Цена суток при выдаче')),
-                ('status', models.CharField(choices=[('reserved', 'К передаче'), ('active', 'На руках'), ('requested', 'Возврат запрошен'), ('inspection', 'Проверка'), ('closed', 'Закрыта')], default='reserved', max_length=12, verbose_name='Статус')),
-                ('receipt_method', models.CharField(choices=[('pickup', 'Самовывоз'), ('delivery', 'Доставка')], default='pickup', max_length=8, verbose_name='Способ получения')),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Заявка создана')),
-                ('handed_at', models.DateTimeField(blank=True, null=True, verbose_name='Передано')),
-                ('return_requested_at', models.DateTimeField(blank=True, null=True, verbose_name='Возврат запрошен')),
-                ('closed_at', models.DateTimeField(blank=True, null=True, verbose_name='Закрыто')),
-                ('copy', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='loans', to='rental.copy', verbose_name='Экземпляр')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='loans', to=settings.AUTH_USER_MODEL, verbose_name='Игрок')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'daily_days',
+                    models.PositiveSmallIntegerField(
+                        blank=True,
+                        null=True,
+                        validators=[
+                            django.core.validators.MinValueValidator(1),
+                            django.core.validators.MaxValueValidator(30),
+                        ],
+                        verbose_name='Суток аренды',
+                    ),
+                ),
+                (
+                    'daily_price_snapshot',
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=2,
+                        max_digits=8,
+                        null=True,
+                        verbose_name='Цена суток при выдаче',
+                    ),
+                ),
+                (
+                    'status',
+                    models.CharField(
+                        choices=[
+                            ('reserved', 'К передаче'),
+                            ('active', 'На руках'),
+                            ('requested', 'Возврат запрошен'),
+                            ('inspection', 'Проверка'),
+                            ('closed', 'Закрыта'),
+                        ],
+                        default='reserved',
+                        max_length=12,
+                        verbose_name='Статус',
+                    ),
+                ),
+                (
+                    'receipt_method',
+                    models.CharField(
+                        choices=[('pickup', 'Самовывоз'), ('delivery', 'Доставка')],
+                        default='pickup',
+                        max_length=8,
+                        verbose_name='Способ получения',
+                    ),
+                ),
+                (
+                    'created_at',
+                    models.DateTimeField(
+                        default=django.utils.timezone.now, verbose_name='Заявка создана'
+                    ),
+                ),
+                (
+                    'handed_at',
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name='Передано'
+                    ),
+                ),
+                (
+                    'return_requested_at',
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name='Возврат запрошен'
+                    ),
+                ),
+                (
+                    'closed_at',
+                    models.DateTimeField(blank=True, null=True, verbose_name='Закрыто'),
+                ),
+                (
+                    'copy',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='loans',
+                        to='rental.copy',
+                        verbose_name='Экземпляр',
+                    ),
+                ),
+                (
+                    'user',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='loans',
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name='Игрок',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Выдача',
@@ -164,14 +436,55 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Delivery',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('kind', models.CharField(choices=[('outbound', 'Доставка'), ('return', 'Забор')], max_length=8, verbose_name='Операция')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'kind',
+                    models.CharField(
+                        choices=[('outbound', 'Доставка'), ('return', 'Забор')],
+                        max_length=8,
+                        verbose_name='Операция',
+                    ),
+                ),
                 ('address', models.CharField(max_length=250, verbose_name='Адрес')),
-                ('contact', models.CharField(max_length=100, verbose_name='Контакт получателя')),
+                (
+                    'contact',
+                    models.CharField(max_length=100, verbose_name='Контакт получателя'),
+                ),
                 ('scheduled_at', models.DateTimeField(verbose_name='Запланировано')),
-                ('transferred_at', models.DateTimeField(blank=True, null=True, verbose_name='Передано')),
-                ('courier', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='deliveries', to=settings.AUTH_USER_MODEL, verbose_name='Курьер')),
-                ('loan', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='deliveries', to='rental.loan', verbose_name='Выдача')),
+                (
+                    'transferred_at',
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name='Передано'
+                    ),
+                ),
+                (
+                    'courier',
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='deliveries',
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name='Курьер',
+                    ),
+                ),
+                (
+                    'loan',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='deliveries',
+                        to='rental.loan',
+                        verbose_name='Выдача',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Доставка',
@@ -182,10 +495,40 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='LoanComponent',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('expected_quantity', models.PositiveSmallIntegerField(validators=[django.core.validators.MinValueValidator(1)], verbose_name='Выданное количество')),
-                ('component', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='loan_components', to='rental.component', verbose_name='Деталь')),
-                ('loan', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='components', to='rental.loan', verbose_name='Выдача')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'expected_quantity',
+                    models.PositiveSmallIntegerField(
+                        validators=[django.core.validators.MinValueValidator(1)],
+                        verbose_name='Выданное количество',
+                    ),
+                ),
+                (
+                    'component',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='loan_components',
+                        to='rental.component',
+                        verbose_name='Деталь',
+                    ),
+                ),
+                (
+                    'loan',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='components',
+                        to='rental.loan',
+                        verbose_name='Выдача',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Выданная деталь',
@@ -196,30 +539,98 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='inspectionline',
             name='loan_component',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='checks', to='rental.loancomponent', verbose_name='Выданная деталь'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='checks',
+                to='rental.loancomponent',
+                verbose_name='Выданная деталь',
+            ),
         ),
         migrations.CreateModel(
             name='Plan',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True, verbose_name='Название')),
-                ('limit', models.PositiveSmallIntegerField(validators=[django.core.validators.MinValueValidator(1)], verbose_name='Лимит')),
-                ('price', models.DecimalField(decimal_places=2, max_digits=8, validators=[django.core.validators.MinValueValidator(0)], verbose_name='Цена за месяц')),
-                ('is_active', models.BooleanField(default=True, verbose_name='Доступен')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'name',
+                    models.CharField(
+                        max_length=100, unique=True, verbose_name='Название'
+                    ),
+                ),
+                (
+                    'limit',
+                    models.PositiveSmallIntegerField(
+                        validators=[django.core.validators.MinValueValidator(1)],
+                        verbose_name='Лимит',
+                    ),
+                ),
+                (
+                    'price',
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=8,
+                        validators=[django.core.validators.MinValueValidator(0)],
+                        verbose_name='Цена за месяц',
+                    ),
+                ),
+                (
+                    'is_active',
+                    models.BooleanField(default=True, verbose_name='Доступен'),
+                ),
             ],
             options={
                 'verbose_name': 'Тариф',
                 'verbose_name_plural': 'Тарифы',
                 'ordering': ['price', 'id'],
-                'constraints': [models.CheckConstraint(condition=models.Q(('limit__gte', 1)), name='plan_limit_positive'), models.CheckConstraint(condition=models.Q(('price__gte', 0)), name='plan_price_nonnegative')],
+                'constraints': [
+                    models.CheckConstraint(
+                        condition=models.Q(('limit__gte', 1)),
+                        name='plan_limit_positive',
+                    ),
+                    models.CheckConstraint(
+                        condition=models.Q(('price__gte', 0)),
+                        name='plan_price_nonnegative',
+                    ),
+                ],
             },
         ),
         migrations.CreateModel(
             name='ItemPlatform',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='platform_links', to='rental.item', verbose_name='Позиция')),
-                ('platform', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='item_links', to='rental.platform', verbose_name='Платформа')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'item',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name='platform_links',
+                        to='rental.item',
+                        verbose_name='Позиция',
+                    ),
+                ),
+                (
+                    'platform',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='item_links',
+                        to='rental.platform',
+                        verbose_name='Платформа',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Платформа позиции',
@@ -230,16 +641,51 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='item',
             name='platforms',
-            field=models.ManyToManyField(blank=True, related_name='items', through='rental.ItemPlatform', to='rental.platform', verbose_name='Платформы'),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='items',
+                through='rental.ItemPlatform',
+                to='rental.platform',
+                verbose_name='Платформы',
+            ),
         ),
         migrations.CreateModel(
             name='ReturnAct',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('checked_at', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Дата проверки')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'checked_at',
+                    models.DateTimeField(
+                        default=django.utils.timezone.now, verbose_name='Дата проверки'
+                    ),
+                ),
                 ('notes', models.TextField(blank=True, verbose_name='Замечания')),
-                ('inspector', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='inspections', to=settings.AUTH_USER_MODEL, verbose_name='Сотрудник')),
-                ('loan', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='acts', to='rental.loan', verbose_name='Выдача')),
+                (
+                    'inspector',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='inspections',
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name='Сотрудник',
+                    ),
+                ),
+                (
+                    'loan',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='acts',
+                        to='rental.loan',
+                        verbose_name='Выдача',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Акт приёма',
@@ -250,18 +696,61 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='inspectionline',
             name='act',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='lines', to='rental.returnact', verbose_name='Акт'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='lines',
+                to='rental.returnact',
+                verbose_name='Акт',
+            ),
         ),
         migrations.CreateModel(
             name='Subscription',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('starts_at', models.DateTimeField(verbose_name='Начало')),
                 ('ends_at', models.DateTimeField(verbose_name='Окончание')),
-                ('limit_snapshot', models.PositiveSmallIntegerField(validators=[django.core.validators.MinValueValidator(1)], verbose_name='Лимит при оформлении')),
-                ('price_snapshot', models.DecimalField(decimal_places=2, max_digits=8, validators=[django.core.validators.MinValueValidator(0)], verbose_name='Цена при оформлении')),
-                ('plan', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='subscriptions', to='rental.plan', verbose_name='Тариф')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='subscriptions', to=settings.AUTH_USER_MODEL, verbose_name='Игрок')),
+                (
+                    'limit_snapshot',
+                    models.PositiveSmallIntegerField(
+                        validators=[django.core.validators.MinValueValidator(1)],
+                        verbose_name='Лимит при оформлении',
+                    ),
+                ),
+                (
+                    'price_snapshot',
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=8,
+                        validators=[django.core.validators.MinValueValidator(0)],
+                        verbose_name='Цена при оформлении',
+                    ),
+                ),
+                (
+                    'plan',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='subscriptions',
+                        to='rental.plan',
+                        verbose_name='Тариф',
+                    ),
+                ),
+                (
+                    'user',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name='subscriptions',
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name='Игрок',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Подписка',
@@ -272,90 +761,206 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='loan',
             name='subscription',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='loans', to='rental.subscription', verbose_name='Подписка'),
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='loans',
+                to='rental.subscription',
+                verbose_name='Подписка',
+            ),
         ),
         migrations.AddConstraint(
             model_name='copycomponent',
-            constraint=models.UniqueConstraint(fields=('copy', 'component'), name='unique_copy_component'),
+            constraint=models.UniqueConstraint(
+                fields=('copy', 'component'), name='unique_copy_component'
+            ),
         ),
         migrations.AddConstraint(
             model_name='copycomponent',
-            constraint=models.CheckConstraint(condition=models.Q(('quantity__gte', 1)), name='component_quantity_positive'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('quantity__gte', 1)),
+                name='component_quantity_positive',
+            ),
         ),
         migrations.AddConstraint(
             model_name='fine',
-            constraint=models.CheckConstraint(condition=models.Q(('amount__gte', 0)), name='fine_nonnegative'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('amount__gte', 0)), name='fine_nonnegative'
+            ),
         ),
         migrations.AddConstraint(
             model_name='fine',
-            constraint=models.CheckConstraint(condition=models.Q(('paid_at__isnull', True), ('paid_at__gte', models.F('created_at')), _connector='OR'), name='fine_dates_order'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(
+                    ('paid_at__isnull', True),
+                    ('paid_at__gte', models.F('created_at')),
+                    _connector='OR',
+                ),
+                name='fine_dates_order',
+            ),
         ),
         migrations.AddConstraint(
             model_name='delivery',
-            constraint=models.CheckConstraint(condition=models.Q(('kind__in', ['outbound', 'return'])), name='delivery_valid_kind'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('kind__in', ['outbound', 'return'])),
+                name='delivery_valid_kind',
+            ),
         ),
         migrations.AddConstraint(
             model_name='delivery',
-            constraint=models.CheckConstraint(condition=models.Q(('transferred_at__isnull', True), ('courier__isnull', False), _connector='OR'), name='delivery_transfer_has_courier'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(
+                    ('transferred_at__isnull', True),
+                    ('courier__isnull', False),
+                    _connector='OR',
+                ),
+                name='delivery_transfer_has_courier',
+            ),
         ),
         migrations.AddConstraint(
             model_name='loancomponent',
-            constraint=models.UniqueConstraint(fields=('loan', 'component'), name='unique_loan_component'),
+            constraint=models.UniqueConstraint(
+                fields=('loan', 'component'), name='unique_loan_component'
+            ),
         ),
         migrations.AddConstraint(
             model_name='loancomponent',
-            constraint=models.CheckConstraint(condition=models.Q(('expected_quantity__gte', 1)), name='expected_quantity_positive'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('expected_quantity__gte', 1)),
+                name='expected_quantity_positive',
+            ),
         ),
         migrations.AddConstraint(
             model_name='itemplatform',
-            constraint=models.UniqueConstraint(fields=('item', 'platform'), name='unique_item_platform'),
+            constraint=models.UniqueConstraint(
+                fields=('item', 'platform'), name='unique_item_platform'
+            ),
         ),
         migrations.AddConstraint(
             model_name='item',
-            constraint=models.CheckConstraint(condition=models.Q(('daily_price__gte', 0)), name='item_price_nonnegative'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('daily_price__gte', 0)),
+                name='item_price_nonnegative',
+            ),
         ),
         migrations.AddConstraint(
             model_name='item',
-            constraint=models.CheckConstraint(condition=models.Q(models.Q(('players_max__isnull', True), ('players_min__isnull', True)), models.Q(('players_max__gte', models.F('players_min')), ('players_max__isnull', False), ('players_min__gte', 1), ('players_min__isnull', False)), _connector='OR'), name='item_players_range'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(
+                    models.Q(
+                        ('players_max__isnull', True), ('players_min__isnull', True)
+                    ),
+                    models.Q(
+                        ('players_max__gte', models.F('players_min')),
+                        ('players_max__isnull', False),
+                        ('players_min__gte', 1),
+                        ('players_min__isnull', False),
+                    ),
+                    _connector='OR',
+                ),
+                name='item_players_range',
+            ),
         ),
         migrations.AddConstraint(
             model_name='inspectionline',
-            constraint=models.UniqueConstraint(fields=('act', 'loan_component'), name='unique_act_component'),
+            constraint=models.UniqueConstraint(
+                fields=('act', 'loan_component'), name='unique_act_component'
+            ),
         ),
         migrations.AddConstraint(
             model_name='subscription',
-            constraint=models.CheckConstraint(condition=models.Q(('ends_at__gt', models.F('starts_at'))), name='subscription_dates_order'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('ends_at__gt', models.F('starts_at'))),
+                name='subscription_dates_order',
+            ),
         ),
         migrations.AddConstraint(
             model_name='subscription',
-            constraint=models.CheckConstraint(condition=models.Q(('limit_snapshot__gte', 1)), name='subscription_limit_positive'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('limit_snapshot__gte', 1)),
+                name='subscription_limit_positive',
+            ),
         ),
         migrations.AddConstraint(
             model_name='subscription',
-            constraint=models.CheckConstraint(condition=models.Q(('price_snapshot__gte', 0)), name='subscription_price_nonnegative'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('price_snapshot__gte', 0)),
+                name='subscription_price_nonnegative',
+            ),
         ),
         migrations.AddConstraint(
             model_name='loan',
-            constraint=models.UniqueConstraint(condition=models.Q(('status', 'closed'), _negated=True), fields=('copy',), name='one_open_loan_per_copy'),
+            constraint=models.UniqueConstraint(
+                condition=models.Q(('status', 'closed'), _negated=True),
+                fields=('copy',),
+                name='one_open_loan_per_copy',
+            ),
         ),
         migrations.AddConstraint(
             model_name='loan',
-            constraint=models.CheckConstraint(condition=models.Q(('status__in', ['reserved', 'active', 'requested', 'inspection', 'closed'])), name='loan_valid_status'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(
+                    (
+                        'status__in',
+                        ['reserved', 'active', 'requested', 'inspection', 'closed'],
+                    )
+                ),
+                name='loan_valid_status',
+            ),
         ),
         migrations.AddConstraint(
             model_name='loan',
-            constraint=models.CheckConstraint(condition=models.Q(('receipt_method__in', ['pickup', 'delivery'])), name='loan_valid_method'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(('receipt_method__in', ['pickup', 'delivery'])),
+                name='loan_valid_method',
+            ),
         ),
         migrations.AddConstraint(
             model_name='loan',
-            constraint=models.CheckConstraint(condition=models.Q(models.Q(('daily_days__isnull', True), ('daily_price_snapshot__isnull', True), ('subscription__isnull', False)), models.Q(('daily_days__gte', 1), ('daily_days__isnull', False), ('daily_days__lte', 30), ('daily_price_snapshot__gte', 0), ('daily_price_snapshot__isnull', False), ('subscription__isnull', True)), _connector='OR'), name='loan_mode_exclusive'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(
+                    models.Q(
+                        ('daily_days__isnull', True),
+                        ('daily_price_snapshot__isnull', True),
+                        ('subscription__isnull', False),
+                    ),
+                    models.Q(
+                        ('daily_days__gte', 1),
+                        ('daily_days__isnull', False),
+                        ('daily_days__lte', 30),
+                        ('daily_price_snapshot__gte', 0),
+                        ('daily_price_snapshot__isnull', False),
+                        ('subscription__isnull', True),
+                    ),
+                    _connector='OR',
+                ),
+                name='loan_mode_exclusive',
+            ),
         ),
         migrations.AddConstraint(
             model_name='loan',
-            constraint=models.CheckConstraint(condition=models.Q(models.Q(('closed_at__isnull', False), ('status', 'closed')), models.Q(models.Q(('status', 'closed'), _negated=True), ('closed_at__isnull', True)), _connector='OR'), name='loan_closure_consistent'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(
+                    models.Q(('closed_at__isnull', False), ('status', 'closed')),
+                    models.Q(
+                        models.Q(('status', 'closed'), _negated=True),
+                        ('closed_at__isnull', True),
+                    ),
+                    _connector='OR',
+                ),
+                name='loan_closure_consistent',
+            ),
         ),
         migrations.AddConstraint(
             model_name='loan',
-            constraint=models.CheckConstraint(condition=models.Q(('closed_at__isnull', True), ('closed_at__gte', models.F('created_at')), _connector='OR'), name='loan_dates_order'),
+            constraint=models.CheckConstraint(
+                condition=models.Q(
+                    ('closed_at__isnull', True),
+                    ('closed_at__gte', models.F('created_at')),
+                    _connector='OR',
+                ),
+                name='loan_dates_order',
+            ),
         ),
     ]

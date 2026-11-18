@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Каталог — Прокат игр{% endblock %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/catalog-data.css' %}"><script src="{% static 'rental/catalog-interactions.js' %}" defer></script>{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'rental/catalog-data.css' %}">
+<script src="{% static 'rental/catalog-interactions.js' %}" defer></script>
+{% endblock %}
 {% block content %}
-<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Каталог</span></nav>
+<nav class="breadcrumbs" aria-label="Навигационная цепочка">
+    <a href="{% url 'rental:catalog' %}">Главная</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Каталог</span>
+</nav>
 <section aria-labelledby="catalog-title">
     <h1 id="catalog-title">Игры и консоли</h1>
     <p class="intro">Найдите игру для своей платформы или выберите настольную игру для компании.</p>
@@ -12,7 +19,9 @@
             <form action="{% url 'rental:search' %}" method="get" role="search">
                 <label for="catalog-search">Поиск</label>
                 <input id="catalog-search" type="search" name="q" placeholder="Название игры">
-                <p class="catalog-filter-hint" id="catalog-filter-hint" hidden>При вводе фильтруются игры на этой странице. Кнопка ищет по всему каталогу.</p>
+                <p class="catalog-filter-hint" id="catalog-filter-hint" hidden>
+                    При вводе фильтруются игры на этой странице. Кнопка ищет по всему каталогу.
+                </p>
                 <button type="submit">Найти игру</button>
             </form>
         </aside>

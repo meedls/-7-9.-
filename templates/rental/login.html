@@ -1,20 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Вход — Прокат игр{% endblock %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/account-pages.css' %}"><script src="{% static 'rental/form-validation.js' %}" defer></script>{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'rental/account-pages.css' %}">
+<script src="{% static 'rental/form-validation.js' %}" defer></script>
+{% endblock %}
 {% block content %}
-<nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Вход</span></nav>
+<nav class="breadcrumbs" aria-label="Навигационная цепочка">
+    <a href="{% url 'rental:catalog' %}">Главная</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Вход</span>
+</nav>
 <section class="account-login" aria-labelledby="login-title">
     <h1 id="login-title">Вход</h1>
     <p class="intro">Войдите, чтобы оформить аренду и следить за возвратами.</p>
     <form method="post" aria-label="Форма входа" data-client-validation novalidate>
         {% csrf_token %}
-        {% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+        {% if form.non_field_errors %}
+            <div class="form-errors" role="alert">{{ form.non_field_errors }}</div>
+        {% endif %}
         {% for field in form %}
             <div class="account-field">
                 {{ field.label_tag }}
                 {{ field }}
-                {% if field.errors %}<div class="field-errors" id="{{ field.auto_id }}_error" role="alert">{{ field.errors }}</div>{% endif %}
+                {% if field.errors %}
+                    <div class="field-errors" id="{{ field.auto_id }}_error" role="alert">{{ field.errors }}</div>
+                {% endif %}
             </div>
         {% endfor %}
         <button class="account-submit" type="submit">Войти</button>

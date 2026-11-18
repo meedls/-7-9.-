@@ -11,6 +11,11 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('logout/', views.logout, name='logout'),
     path('games/<int:pk>/', views.item, name='item'),
+    path(
+        'games/<int:pk>/availability/',
+        views.item_availability,
+        name='item_availability',
+    ),
     path('loans/', views.loans, name='loans'),
     path('search/', views.search, name='search'),
 ]

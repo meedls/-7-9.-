@@ -5,26 +5,40 @@ from django.contrib import messages
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.db.models import Prefetch
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.views.decorators.http import require_POST
+from django.views.decorators.cache import never_cache
+from django.views.decorators.http import require_GET, require_POST
 
 from .forms import RegistrationForm
 from .models import Copy, Item, Loan, Plan
 
 
 def available_copies():
-    return Copy.objects.filter(is_serviceable=True).exclude(
-        loans__status__in=[
-            Loan.Status.RESERVED, Loan.Status.ACTIVE,
-            Loan.Status.REQUESTED, Loan.Status.INSPECTION,
-        ]
-    ).distinct()
+    return (
+        Copy.objects.filter(is_serviceable=True)
+        .exclude(
+            loans__status__in=[
+                Loan.Status.RESERVED,
+                Loan.Status.ACTIVE,
+                Loan.Status.REQUESTED,
+                Loan.Status.INSPECTION,
+            ]
+        )
+        .distinct()
+    )
 
 
 def catalog_items():
-    return Item.objects.filter(is_published=True).select_related('category').prefetch_related(
-        'platforms', Prefetch('copies', queryset=available_copies(), to_attr='free_copies')
-    ).order_by('title', 'pk')
+    return (
+        Item.objects.filter(is_published=True)
+        .select_related('category')
+        .prefetch_related(
+            'platforms',
+            Prefetch('copies', queryset=available_copies(), to_attr='free_copies'),
+        )
+        .order_by('title', 'pk')
+    )
 
 
 def paginate_items(request, items):
@@ -35,19 +49,27 @@ def paginate_items(request, items):
 
 
 def catalog(request):
-    return render(request, 'rental/catalog.html', {
-        'page_obj': paginate_items(request, catalog_items()),
-    })
+    return render(
+        request,
+        'rental/catalog.html',
+        {
+            'page_obj': paginate_items(request, catalog_items()),
+        },
+    )
 
 
 def subscription(request):
-    return render(request, 'rental/plans.html', {'plans': Plan.objects.filter(is_active=True)})
+    return render(
+        request, 'rental/plans.html', {'plans': Plan.objects.filter(is_active=True)}
+    )
 
 
 def login(request):
     if request.user.is_authenticated:
         return redirect('rental:catalog')
-    form = AuthenticationForm(request, data=request.POST if request.method == 'POST' else None)
+    form = AuthenticationForm(
+        request, data=request.POST if request.method == 'POST' else None
+    )
     if request.method == 'POST' and form.is_valid():
         auth_login(request, form.get_user())
         messages.success(request, 'Вы вошли в аккаунт.')
@@ -81,6 +103,15 @@ def item(request, pk):
     return render(request, 'rental/item.html', {'item': game, 'copies': copies})
 
 
+@never_cache
+@require_GET
+def item_availability(request, pk):
+    game = get_object_or_404(Item, pk=pk, is_published=True)
+    return JsonResponse(
+        {'available_count': available_copies().filter(item=game).count()}
+    )
+
+
 def loans(request):
     user_loans = None
     if request.user.is_authenticated:
@@ -90,8 +121,16 @@ def loans(request):
 
 def search(request):
     query = request.GET.get('q', '').strip()
-    items = catalog_items().filter(title__iregex=re.escape(query)) if query else catalog_items().none()
-    return render(request, 'rental/search.html', {
-        'query': query,
-        'page_obj': paginate_items(request, items),
-    })
+    items = (
+        catalog_items().filter(title__iregex=re.escape(query))
+        if query
+        else catalog_items().none()
+    )
+    return render(
+        request,
+        'rental/search.html',
+        {
+            'query': query,
+            'page_obj': paginate_items(request, items),
+        },
+    )
