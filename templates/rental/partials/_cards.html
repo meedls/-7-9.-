@@ -1,19 +1,29 @@
 {% load static %}
+<p id="favorites-note" class="catalog-hint" hidden>Избранное сохраняется только в этом браузере.</p>
+<p id="favorites-status" class="catalog-status" role="status" aria-live="polite" hidden></p>
+<p id="catalog-filter-status" class="catalog-status" role="status" aria-live="polite" hidden></p>
 <div class="cards" aria-label="Игры каталога">
     {% for item in page_obj %}
-    <article class="card">
+    <article class="card" data-game-id="{{ item.pk }}">
+        <div class="card-media">
         {% if item.cover %}
         <img class="catalog-cover" src="{{ item.cover.url }}" alt="{{ item.title }}" width="{{ item.cover.width }}" height="{{ item.cover.height }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
         {% else %}
         <img class="catalog-cover" src="{% static 'rental/gta-card.jpg' %}" srcset="{% static 'rental/gta-card.jpg' %} 320w, {% static 'rental/gta.jpg' %} 596w" sizes="(max-width: 560px) calc(100vw - 60px), (max-width: 800px) calc((100vw - 104px) / 2), (max-width: 1168px) calc((100vw - 452px) / 3), 239px" alt="Иллюстрация GTA VI — изображение-заглушка" width="320" height="180" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
         {% endif %}
+        </div>
+        <p class="card-category">{{ item.category.name }}{% for platform in item.platforms.all %}{% if forloop.first %} · {% else %}, {% endif %}{{ platform.name }}{% endfor %}</p>
         <h2>{{ item.title }}</h2>
-        <p>{{ item.category.name }}{% for platform in item.platforms.all %}{% if forloop.first %} · {% else %}, {% endif %}{{ platform.name }}{% endfor %}</p>
         <p class="catalog-description">{{ item.description|truncatechars:100 }}</p>
-        <p class="catalog-price">{{ item.daily_price|floatformat:2 }} ₽ / сутки</p>
+        <div class="card-info">
+            <p class="catalog-price">{{ item.daily_price|floatformat:2 }} ₽ <span>/ сутки</span></p>
+            {% if item.available_count %}<p class="availability">В наличии</p>{% else %}<p class="availability catalog-unavailable">Нет в наличии</p>{% endif %}
+        </div>
         <p class="catalog-date">Добавлено: {{ item.created_at|date:'d.m.Y' }}</p>
-        {% if item.available_count %}<p class="availability">В наличии</p>{% else %}<p class="availability catalog-unavailable">Нет в наличии</p>{% endif %}
-        <a class="card-link" href="{% url 'rental:item' item.pk %}">Подробнее</a>
+        <div class="card-actions">
+            <a class="card-link" href="{% url 'rental:item' item.pk %}">Подробнее</a>
+            <button class="favorite-button" type="button" data-favorite-id="{{ item.pk }}" data-title="{{ item.title }}" aria-pressed="false" aria-label="Добавить {{ item.title }} в избранное" hidden>В избранное</button>
+        </div>
     </article>
     {% empty %}
     <p class="catalog-empty">{{ empty_message }}</p>

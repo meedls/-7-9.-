@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Поиск — Прокат игр{% endblock %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/catalog-data.css' %}">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/catalog-data.css' %}"><script src="{% static 'rental/catalog-interactions.js' %}" defer></script>{% endblock %}
 {% block content %}
 <nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Каталог</a><span aria-hidden="true">/</span><span aria-current="page">Поиск</span></nav>
 <section aria-labelledby="search-title">
