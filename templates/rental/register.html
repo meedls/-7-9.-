@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Регистрация — Прокат игр{% endblock %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/account-pages.css' %}">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'rental/account-pages.css' %}"><script src="{% static 'rental/form-validation.js' %}" defer></script>{% endblock %}
 {% block content %}
 <nav class="breadcrumbs" aria-label="Навигационная цепочка"><a href="{% url 'rental:catalog' %}">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Регистрация</span></nav>
 <section class="account-login" aria-labelledby="register-title">
     <h1 id="register-title">Регистрация</h1>
     <p class="intro">Создайте аккаунт, чтобы пользоваться сервисом проката игр.</p>
-    <form method="post" aria-label="Форма регистрации" novalidate>
+    <form method="post" aria-label="Форма регистрации" data-client-validation novalidate>
         {% csrf_token %}
         {% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
         {% for field in form %}
